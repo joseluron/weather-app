@@ -1,4 +1,5 @@
 const initialWeatherInformation = {
+  fetched: false,
   fetching: false,
   weatherInformation: []
 };
@@ -14,6 +15,7 @@ const weatherInformation = (state = initialWeatherInformation, action) => {
       return {
         ...state,
         fetching: false,
+        fetched: true,
         weatherInformation: action.weatherInformation
       };
     default:

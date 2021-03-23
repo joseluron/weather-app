@@ -1,11 +1,14 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { getWeatherInformation } from '../redux/actions/Weather';
 
 const Home = ({ weatherInformation, getWeatherInformation }) => {
   useEffect(() => {
-    getWeatherInformation();
+    if(!weatherInformation.fetched && !weatherInformation.fetching) {
+      getWeatherInformation();
+    }
   }, []);
 
   if (weatherInformation.fetching) {
@@ -19,10 +22,10 @@ const Home = ({ weatherInformation, getWeatherInformation }) => {
         <div>
           {weatherInformation.weatherInformation.map(city => {
             return (
-              <div key={city.cityName}>
+              <Link to={`/city/${city.cityName}`} key={city.cityName}>
                 <p>{city.cityName}</p>
                 <span>{city.data.main.temp}</span>
-              </div>
+              </Link>
             );
           })}
         </div>
