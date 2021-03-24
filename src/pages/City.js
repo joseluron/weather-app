@@ -23,7 +23,7 @@ const City = ({ weatherInformation }) => {
             <div className="city-container">
                 <div className="header-container">
                     <div className="navigation">
-                        <Link to="/">{"<"}</Link>  
+                        <Link to="/" data-testid="backButton">{"<"}</Link>  
                     </div>
                     <h1>{currentCity}</h1>
                 </div>
