@@ -16,7 +16,8 @@ const weatherInformation = (state = initialWeatherInformation, action) => {
         ...state,
         fetching: false,
         fetched: true,
-        weatherInformation: action.weatherInformation
+        weatherInformation: action.weatherInformation,
+        updated: Date.now()
       };
     default:
       return {

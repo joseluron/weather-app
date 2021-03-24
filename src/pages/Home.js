@@ -10,10 +10,13 @@ const Home = ({ weatherInformation, getWeatherInformation }) => {
   useEffect(() => {
     if(!weatherInformation.fetched && !weatherInformation.fetching) {
       getWeatherInformation();
+      setInterval(() => {
+        getWeatherInformation();
+      }, 60000);
     }
   }, []);
 
-  if (weatherInformation.fetching) {
+  if (!weatherInformation.fetched) {
     return <p>Loading...</p>
   }
 
@@ -34,6 +37,7 @@ const Home = ({ weatherInformation, getWeatherInformation }) => {
                 </Link>
               );
             })}
+            <span className="updated">{`Updated: ${new Date(weatherInformation.updated).toLocaleString()}`}</span>
           </div>
         }
       </div>

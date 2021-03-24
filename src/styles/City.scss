@@ -11,10 +11,34 @@
         .navigation {
             position: absolute;
             left: 0;
+            font-size: 25px;
 
             a {
                 text-decoration: none;
             }
+        }
+    }
+
+    .city-temp-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .city-weather-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        
+        .city-weather {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
         }
     }
 }

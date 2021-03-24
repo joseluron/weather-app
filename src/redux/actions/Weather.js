@@ -8,7 +8,7 @@ import paris from '../../utils/paris.json';
 const cities = ['Barcelona', 'San Francisco', 'London', 'Paris'];
 
 const obtainCityQuery = cityName => {
-    return `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=1dd204628a727f5f68ac7f428820c128`;
+    return `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=1dd204628a727f5f68ac7f428820c128`;
 };
 
 const getCityMock = cityName => {
