@@ -24,7 +24,7 @@ const Home = ({ weatherInformation, getWeatherInformation }) => {
     <>
       <div className="home-container">
         <h1>Weather App</h1>
-        {weatherInformation &&
+        {weatherInformation.weatherInformation.length &&
           <div className="cities-weather-container">
             {weatherInformation.weatherInformation.map(city => {
               return (
@@ -39,6 +39,9 @@ const Home = ({ weatherInformation, getWeatherInformation }) => {
             })}
             <span className="updated">{`Updated: ${new Date(weatherInformation.updated).toLocaleString()}`}</span>
           </div>
+        }
+        {!weatherInformation.weatherInformation.length &&
+          <h3>No weather information to show at the moment. Please, try again later</h3>
         }
       </div>
     </>

@@ -1,3 +1,5 @@
+import AppConstants from '../../App.constants';
+
 const initialWeatherInformation = {
   fetched: false,
   fetching: false,
@@ -6,12 +8,12 @@ const initialWeatherInformation = {
 
 const weatherInformation = (state = initialWeatherInformation, action) => {
   switch(action.type) {
-    case 'FETCHING_WEATHER_INFORMATION':
+    case AppConstants.FETCHING_WEATHER_INFORMATION:
       return {
         ...state,
         fetching: true
       };
-    case 'FETCHED_WEATHER_INFORMATION':
+    case AppConstants.FETCHED_WEATHER_INFORMATION:
       return {
         ...state,
         fetching: false,
@@ -19,6 +21,11 @@ const weatherInformation = (state = initialWeatherInformation, action) => {
         weatherInformation: action.weatherInformation,
         updated: Date.now()
       };
+    case AppConstants.ERASE_WEATHER_INFORMATION:
+      return {
+        ...state,
+        weatherInformaton: []
+      }
     default:
       return {
           ...state
