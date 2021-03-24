@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { getWeatherInformation } from '../redux/actions/Weather';
 
 import '../styles/Home.scss';
+import CityPreview from '../components/CityPreview';
 
 const Home = ({ weatherInformation, getWeatherInformation }) => {
   useEffect(() => {
@@ -14,7 +15,7 @@ const Home = ({ weatherInformation, getWeatherInformation }) => {
         getWeatherInformation();
       }, 60000);
     }
-  }, []);
+  });
 
   if (!weatherInformation.fetched) {
     return <p>Loading...</p>
@@ -29,11 +30,7 @@ const Home = ({ weatherInformation, getWeatherInformation }) => {
             {weatherInformation.weatherInformation.map(city => {
               return (
                 <Link to={`/city/${city.cityName}`} key={city.cityName}>
-                  <div className="city-wrapper">
-                    <h3>{city.cityName}</h3>
-                    <span>{`Temp: ${city.data.main.temp}°`}</span>
-                    <img src={`http://openweathermap.org/img/wn/${city.data.weather[0].icon}@2x.png`}/>
-                  </div>
+                  <CityPreview cityInformation={city} />
                 </Link>
               );
             })}

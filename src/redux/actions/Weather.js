@@ -70,7 +70,6 @@ export const getWeatherInformation = () => async (dispatch) => {
 
   const promisedWeatherInfo = await Promise.all(weatherInformation);
 
-  console.log(promisedWeatherInfo);
   dispatch(fetchedWeatherInformation(promisedWeatherInfo));
 };
 
