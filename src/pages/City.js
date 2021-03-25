@@ -6,6 +6,15 @@ import '../styles/City.scss';
 const City = ({ weatherInformation }) => {
   const currentCity = useParams().slug;
   const currentCityObject = weatherInformation.weatherInformation.filter(city => city.cityName === currentCity)[0];
+  
+  if (!currentCityObject) {
+    return (
+      <div className="error-message">
+        <h3>No weather information for this city. Please go back to the main page</h3>
+      </div>
+    );
+  }
+  
   const currentCityMain = currentCityObject.data.main;
   
   const cityInfo = {
